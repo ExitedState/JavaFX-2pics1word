@@ -22,7 +22,7 @@ public class Hint extends SceneController implements Initializable{
     ImageView hint2;
     
     randomPic pic;
-
+    
     String pic1;
     String pic2;
     String answer;
@@ -41,6 +41,8 @@ public class Hint extends SceneController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        System.out.println(pic1);
+        System.out.println(pic2);
         Image hintImage1 = new Image(getClass().getResourceAsStream(pic1));
         hint1.setImage(hintImage1);
         Image hintImage2 = new Image(getClass().getResourceAsStream(pic2));

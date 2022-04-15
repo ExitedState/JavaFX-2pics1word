@@ -30,7 +30,6 @@ public class SceneController {
         this.scene = new Scene(root);
         this.stage.setScene(scene);
         this.stage.show();
-
     }
 
     public void switchToEndScene(ActionEvent event) throws Exception {
