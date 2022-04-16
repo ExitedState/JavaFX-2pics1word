@@ -10,7 +10,7 @@
 
 <AnchorPane id="AnchorPane" mouseTransparent="false" prefHeight="570" prefWidth="950" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SkipStage">
    <children>
-      <Button fx:id="submitButton" layoutX="510.0" layoutY="411.0" mnemonicParsing="false" onAction="#submit" prefHeight="48.0" prefWidth="168.0" style="-fx-background-color: gray;" text="SUBMIT" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="submitButton" defaultButton="true" layoutX="510.0" layoutY="411.0" mnemonicParsing="false" onAction="#submit" prefHeight="48.0" prefWidth="168.0" style="-fx-background-color: gray;" text="SUBMIT" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="4077th" size="29.0" />
          </font></Button>
