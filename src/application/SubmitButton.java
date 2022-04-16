@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
-public class SubmitButton extends HintButton implements Initializable {
+public class SubmitButton extends Hint implements Initializable {
 
 //    private int score;
 //    

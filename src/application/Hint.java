@@ -2,6 +2,7 @@ package application;
 
 import gameLogic.randomPic;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,7 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class HintButton extends SceneController implements Initializable {
+public class Hint extends SceneController implements Initializable {
 
     @FXML
     Label hintLabel;
@@ -40,11 +41,12 @@ public class HintButton extends SceneController implements Initializable {
 
     boolean hintFlag = false; //check if player use hint button score minus 10
 
-    public HintButton() throws Exception {
+    public Hint() throws Exception {
         this.pic = new randomPic();
-        pic1 = this.pic.getPicArr().get(1);
-        pic2 = this.pic.getPicArr().get(2);
-        answer = this.pic.getPicArr().get(0);
+        List<String> temp = this.pic.getPicArr();
+        pic1 = temp.get(1);
+        pic2 = temp.get(2);
+        answer = temp.get(0);
 
     }
 

@@ -1,40 +1,41 @@
 package gameLogic;
 
-import java.awt.Image;
-import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class randomPic {
 
-    //first index is answer, other is picture
-    private List<String> picArray = new ArrayList<>();
+    //first index is answer, other is picture path
+    public static List<List<String>> picArray = new ArrayList<>();
+
+    public static int cnt = 0;
 
     public randomPic() throws Exception {
-        this.picArray = randPic();
+        if (cnt == 0) {
+            picArray = new wordToPicture().getPicList();
+            Collections.shuffle(picArray);
+        }
     }
 
-    private static List<String> randPic() throws Exception {
-        List<List<String>> temp = new picWord().getPicList();
-        Random rand = new Random(Double.doubleToLongBits(Math.random()));
-        return temp.get(rand.nextInt(temp.size()));
+    public List<String> getPicArr() throws Exception{
+        if (cnt == picArray.size() - 1) {
+            cnt = 0;
+            picArray = new wordToPicture().getPicList();
+            Collections.shuffle(picArray);
+        }
+        return this.picArray.get(cnt++);
     }
 
-    public List<String> getPicArr() {
-        return this.picArray;
-    }
-
-    //test
-//    public static void main(String args[]) throws Exception {
+//    public static void main(String[] args) throws Exception {
+//        randomPic temp = new randomPic();
+//        for (int i = 0; i <1000; i++) {
+//            List<String> temp2 = temp.getPicArr();
+//            System.out.println(temp2.get(0));
+//            System.out.println(temp2.get(1));
+//            System.out.println(temp2.get(2));
+//        }
 //
-//        List<String> test = new randomPic().getPicArr();
-//        Image picture1 = ImageIO.read(new File(test.get(1)));
-//        Image picture2 = ImageIO.read(new File(test.get(2)));
-//        System.out.println(test.get(0));
-//        System.out.println(test.get(1));
-//        System.out.println(test.get(2));
-//        System.out.println("_______________________");
-//        System.gc();
 //    }
+
 }
