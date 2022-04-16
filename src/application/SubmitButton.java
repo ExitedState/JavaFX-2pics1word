@@ -5,15 +5,13 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class SubmitButton extends Hint implements Initializable {
 
     @FXML
     private TextField answerTextField;
-//    @FXML
-//    private Button skipButton;
+
 
     public SubmitButton() throws Exception {
         player = new Player();
