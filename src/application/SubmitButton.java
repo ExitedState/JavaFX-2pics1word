@@ -9,9 +9,6 @@ import javafx.scene.control.TextField;
 
 public class SubmitButton extends Hint implements Initializable {
 
-//    private int score;
-//    
-//    private int hp;
     @FXML
     private TextField answerTextField;
 
