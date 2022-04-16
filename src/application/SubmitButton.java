@@ -1,51 +1,64 @@
 package application;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
-public class Submit extends Hint {
+public class SubmitButton extends HintButton implements Initializable {
 
-    private int score;
-    private int hp;
-    private int finalScore;
-
+//    private int score;
+//    
+//    private int hp;
     @FXML
-    TextField answerTextField;
+    private TextField answerTextField;
 
-    Player player;
-
-    public Submit() throws Exception {
+    public SubmitButton() throws Exception {
         this.player = new Player();
         this.score = player.getScore();
         this.hp = player.getHp();
     }
 
     public void submit(ActionEvent event) throws Exception {
-        
         if (answerTextField.getText().equalsIgnoreCase(super.getAnswer()) && this.player.getHp() != 0) {
             this.score += 100;
             this.player.setScore(score);
             switchToGameScene(event);
-            System.out.println("Score : " + score);
+            System.out.println("Score : " + this.score);
+
         } else if (!answerTextField.getText().equalsIgnoreCase(super.getAnswer()) && this.player.getHp() != 0) {
             hp -= 1;
             player.setHp(hp);
             System.out.println("HP :" + hp);
+
         } else {
-            this.finalScore = this.score;
-            player.newStatus();
             switchToEndScene(event);
         }
-        if(button_Stage){
+
+        if (button_Stage) {
             hintButton.setDisable(false); //if button stage TRUE -> turn on button
-        }
-        else{
+        } else {
             hintButton.setDisable(true); // if button used -> turn off button
         }
+
+        //change score and hp between stage
+        currentScore.setText("" + this.score);
+        currentHP.setText("" + this.hp);
+
     }
 
-    public int getFinalScore() {
-        return this.finalScore;
+    @Override
+    //update score and hp when go to next stage
+    public void initialize(URL url, ResourceBundle rb) {
+        super.initialize(url, rb);
+        currentScore.setText("" + this.score);
+        currentHP.setText("" + this.hp);
     }
+
+    public int getScore() {
+        return this.score;
+    }
+
 }

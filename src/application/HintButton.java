@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class Hint extends SceneController implements Initializable {
+public class HintButton extends SceneController implements Initializable {
 
     @FXML
     Label hintLabel;
@@ -27,19 +27,35 @@ public class Hint extends SceneController implements Initializable {
     String pic2;
     String answer;
 
+    @FXML
+    protected Label currentScore;
+    @FXML
+    protected Label currentHP;
+    
+    protected int score;
+    protected int hp;
+    protected Player player;
+    
     boolean button_Stage = true;
 
-    public Hint() throws Exception {
+    boolean hintFlag = false; //check if player use hint button score minus 10
+
+    public HintButton() throws Exception {
         this.pic = new randomPic();
         pic1 = this.pic.getPicArr().get(1);
         pic2 = this.pic.getPicArr().get(2);
         answer = this.pic.getPicArr().get(0);
+
     }
 
     public void displayHint() throws Exception {
         hintButton.setDisable(true);    //can press hint button only 1 time
         hintLabel.setText(answer.length() + " LETTERS");
-        this.button_Stage = false;
+
+        this.score -= 10;
+        this.player.setScore(score);
+
+        currentScore.setText("" + this.score);
     }
 
     @Override
@@ -57,4 +73,5 @@ public class Hint extends SceneController implements Initializable {
     public String getAnswer() {
         return this.answer;
     }
+
 }

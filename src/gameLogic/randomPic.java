@@ -5,7 +5,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import javax.imageio.ImageIO;
 
 public class randomPic {
 
@@ -18,7 +17,7 @@ public class randomPic {
 
     private static List<String> randPic() throws Exception {
         List<List<String>> temp = new picWord().getPicList();
-        Random rand = new Random();
+        Random rand = new Random(Double.doubleToLongBits(Math.random()));
         return temp.get(rand.nextInt(temp.size()));
     }
 
@@ -27,15 +26,15 @@ public class randomPic {
     }
 
     //test
-    public static void main(String args[]) throws Exception {
-
-        List<String> test = new randomPic().getPicArr();
-        Image picture1 = ImageIO.read(new File(test.get(1)));
-        Image picture2 = ImageIO.read(new File(test.get(2)));
-        System.out.println(test.get(0));
-        System.out.println(test.get(1));
-        System.out.println(test.get(2));
-        System.out.println("_______________________");
-        System.gc();
-    }
+//    public static void main(String args[]) throws Exception {
+//
+//        List<String> test = new randomPic().getPicArr();
+//        Image picture1 = ImageIO.read(new File(test.get(1)));
+//        Image picture2 = ImageIO.read(new File(test.get(2)));
+//        System.out.println(test.get(0));
+//        System.out.println(test.get(1));
+//        System.out.println(test.get(2));
+//        System.out.println("_______________________");
+//        System.gc();
+//    }
 }

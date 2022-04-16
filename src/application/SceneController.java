@@ -16,6 +16,7 @@ public class SceneController {
     private Parent root;
 
 
+
     public void switchToMainMenu(ActionEvent event) throws Exception {
         this.root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
         this.stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
