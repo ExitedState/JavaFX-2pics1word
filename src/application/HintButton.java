@@ -52,10 +52,12 @@ public class HintButton extends SceneController implements Initializable {
         hintButton.setDisable(true);    //can press hint button only 1 time
         hintLabel.setText(answer.length() + " LETTERS");
 
+        if(score>0){
         this.score -= 10;
-        this.player.setScore(score);
+        }
 
         currentScore.setText("" + this.score);
+        button_Stage = false;
     }
 
     @Override
