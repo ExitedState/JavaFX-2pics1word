@@ -8,6 +8,7 @@ public class Submit extends Hint {
 
     private int score;
     private int hp;
+    private int finalScore;
 
     @FXML
     TextField answerTextField;
@@ -21,6 +22,7 @@ public class Submit extends Hint {
     }
 
     public void submit(ActionEvent event) throws Exception {
+        
         if (answerTextField.getText().equalsIgnoreCase(super.getAnswer()) && this.player.getHp() != 0) {
             this.score += 100;
             this.player.setScore(score);
@@ -31,8 +33,19 @@ public class Submit extends Hint {
             player.setHp(hp);
             System.out.println("HP :" + hp);
         } else {
+            this.finalScore = this.score;
             player.newStatus();
             switchToEndScene(event);
         }
+        if(button_Stage){
+            hintButton.setDisable(false); //if button stage TRUE -> turn on button
+        }
+        else{
+            hintButton.setDisable(true); // if button used -> turn off button
+        }
+    }
+
+    public int getFinalScore() {
+        return this.finalScore;
     }
 }

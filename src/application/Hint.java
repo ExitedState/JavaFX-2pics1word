@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class Hint extends SceneController implements Initializable{
+public class Hint extends SceneController implements Initializable {
 
     @FXML
     Label hintLabel;
@@ -20,13 +20,15 @@ public class Hint extends SceneController implements Initializable{
     ImageView hint1;
     @FXML
     ImageView hint2;
-    
+
     randomPic pic;
-    
+
     String pic1;
     String pic2;
     String answer;
-    
+
+    boolean button_Stage = true;
+
     public Hint() throws Exception {
         this.pic = new randomPic();
         pic1 = this.pic.getPicArr().get(1);
@@ -35,8 +37,9 @@ public class Hint extends SceneController implements Initializable{
     }
 
     public void displayHint() throws Exception {
-        hintButton.setDisable(true);
+        hintButton.setDisable(true);    //can press hint button only 1 time
         hintLabel.setText(answer.length() + " LETTERS");
+        this.button_Stage = false;
     }
 
     @Override
@@ -47,9 +50,11 @@ public class Hint extends SceneController implements Initializable{
         hint1.setImage(hintImage1);
         Image hintImage2 = new Image(getClass().getResourceAsStream(pic2));
         hint2.setImage(hintImage2);
+
+        hintButton.setDisable(true);    //can use hint button after get wrong answer
     }
 
-    public String getAnswer(){
+    public String getAnswer() {
         return this.answer;
     }
 }
