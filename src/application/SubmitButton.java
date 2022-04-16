@@ -14,10 +14,11 @@ public class SubmitButton extends Hint implements Initializable {
     private TextField answerTextField;
 //    @FXML
 //    private Button skipButton;
+
     public SubmitButton() throws Exception {
-        this.player = new Player();
-        this.score = player.getScore();
-        this.hp = player.getHp();
+        player = new Player();
+        score = player.getScore();
+        hp = player.getHp();
     }
 
     public void submit(ActionEvent event) throws Exception {
@@ -27,12 +28,15 @@ public class SubmitButton extends Hint implements Initializable {
             switchToGameScene(event);
             System.out.println("Score : " + this.score);
 
-        } else if (!answerTextField.getText().equalsIgnoreCase(super.getAnswer()) && this.player.getHp() != 0) {
+        }
+        if (!answerTextField.getText().equalsIgnoreCase(super.getAnswer()) && this.player.getHp() != 0) {
             hp -= 1;
             player.setHp(hp);
+            answerTextField.clear();
             System.out.println("HP :" + hp);
 
-        } else {
+        }
+        if (!answerTextField.getText().equalsIgnoreCase(super.getAnswer()) && this.player.getHp() == 0) {
             switchToEndScene(event);
         }
 
@@ -43,8 +47,8 @@ public class SubmitButton extends Hint implements Initializable {
         }
 
         //change score and hp between stage
-        currentScore.setText("" + this.score);
-        currentHP.setText("" + this.hp);
+        currentScore.setText("" + score);
+        currentHP.setText("" + hp);
 
     }
 
@@ -52,12 +56,12 @@ public class SubmitButton extends Hint implements Initializable {
     //update score and hp when go to next stage
     public void initialize(URL url, ResourceBundle rb) {
         super.initialize(url, rb);
-        currentScore.setText("" + this.score);
-        currentHP.setText("" + this.hp);
+        currentScore.setText("" + score);
+        currentHP.setText("" + hp);
     }
 
     public int getScore() {
-        return this.score;
+        return score;
     }
 
 }

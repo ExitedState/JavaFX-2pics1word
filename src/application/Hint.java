@@ -32,11 +32,11 @@ public class Hint extends SceneController implements Initializable {
     protected Label currentScore;
     @FXML
     protected Label currentHP;
-    
+
     protected int score;
     protected int hp;
     protected Player player;
-    
+
     boolean button_Stage = true;
 
     boolean hintFlag = false; //check if player use hint button score minus 10
@@ -54,8 +54,8 @@ public class Hint extends SceneController implements Initializable {
         hintButton.setDisable(true);    //can press hint button only 1 time
         hintLabel.setText(answer.length() + " LETTERS");
 
-        if(score>0){
-        this.score -= 10;
+        if (score > 0) {
+            this.score -= 10;
         }
 
         currentScore.setText("" + this.score);
