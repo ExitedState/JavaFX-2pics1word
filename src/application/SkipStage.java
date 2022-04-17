@@ -34,11 +34,12 @@ public class SkipStage extends SubmitButton {
     @Override
     public void submit(ActionEvent event) throws Exception {
         super.submit(event);
+        System.out.println(this.counter);
         //if score =0 can use skip free [not minus score])
-        if ((getScore() >= 100 || score==0) && counter > 0) {
+        if ((getScore() >= 100 || score==0) && this.counter > 0) {
             skipButton.setDisable(false);
         }
-        counter++;
+        this.counter++;
     }
 
 }
