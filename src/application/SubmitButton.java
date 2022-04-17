@@ -12,7 +12,6 @@ public class SubmitButton extends Hint implements Initializable {
     @FXML
     private TextField answerTextField;
 
-
     public SubmitButton() throws Exception {
         player = new Player();
         score = player.getScore();
@@ -20,31 +19,32 @@ public class SubmitButton extends Hint implements Initializable {
     }
 
     public void submit(ActionEvent event) throws Exception {
-        if (answerTextField.getText().equalsIgnoreCase(super.getAnswer()) && this.player.getHp() != 0) {
-            this.score += 100;
-            this.player.setScore(score);
+        if (answerTextField.getText().equalsIgnoreCase(super.getAnswer()) && player.getHp() != 0) {
+            score += 100;
+            player.setScore(score);
             switchToGameScene(event);
-            System.out.println("Score : " + this.score);
-
+            System.out.println("Score : " + score);
         }
-        if (!answerTextField.getText().equalsIgnoreCase(super.getAnswer()) && this.player.getHp() != 0) {
+        else if (!answerTextField.getText().equalsIgnoreCase(super.getAnswer()) && player.getHp() != 0) {
             hp -= 1;
             player.setHp(hp);
             answerTextField.clear();
             System.out.println("HP :" + hp);
-
         }
-        if (!answerTextField.getText().equalsIgnoreCase(super.getAnswer()) && this.player.getHp() == 0) {
+        //always check if player hp=0 ENDGAME!!
+        if (!answerTextField.getText().equalsIgnoreCase(super.getAnswer()) && player.getHp() == 0) {
             switchToEndScene(event);
         }
 
-        if (button_Stage) {
-            hintButton.setDisable(false); //if button stage TRUE -> turn on button
+        //first time that player submit wrong answer -> turn on button
+        //default hint_button_Stage = True
+        if (hint_button_Stage) {
+            hintButton.setDisable(false); //turn on button
         } else {
-            hintButton.setDisable(true); // if button used -> turn off button
+            hintButton.setDisable(true); //turn off button
         }
 
-        //change score and hp between stage
+        //update score and hp between stage that player can pass
         currentScore.setText("" + score);
         currentHP.setText("" + hp);
 

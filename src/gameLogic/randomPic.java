@@ -18,24 +18,32 @@ public class randomPic {
         }
     }
 
-    public List<String> getPicArr() throws Exception{
-        if (cnt == picArray.size() - 1) {
+    public List<String> getPicArr() throws Exception {
+        if (cnt == picArray.size()) {
             cnt = 0;
             picArray = new wordToPicture().getPicList();
             Collections.shuffle(picArray);
         }
-        return this.picArray.get(cnt++);
+        return randomPic.picArray.get(cnt++);
     }
 
+    
 //    public static void main(String[] args) throws Exception {
 //        randomPic temp = new randomPic();
-//        for (int i = 0; i <1000; i++) {
+//        List<List<String>> check = new ArrayList<>();
+//        for (int i = 0; i < 190; i++) {
 //            List<String> temp2 = temp.getPicArr();
-//            System.out.println(temp2.get(0));
-//            System.out.println(temp2.get(1));
-//            System.out.println(temp2.get(2));
+//            check.add(temp2);
 //        }
+//        System.out.println("List len :" + check.size());
 //
+//        for (int i = 0; i < check.size(); i++) {
+//            for (int j = i + 1; j < check.size(); j++) {
+//                if (check.get(i).equals(check.get(j))) {
+//                    System.out.println("This text will only print one time");
+//                }
+//            }
+//        }
 //    }
 
 }

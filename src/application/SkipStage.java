@@ -6,37 +6,39 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class SkipStage extends SubmitButton{
-    
+public class SkipStage extends SubmitButton {
+
     @FXML
     Button skipButton;
-    
-    boolean skip_flag = true;
-    int counter = 0;
 
-    public SkipStage() throws Exception{
-        
+    private int counter;
+
+    public SkipStage() throws Exception {
+        this.counter = 0;
     }
-    
+
     @Override
     //update score and hp when go to next stage
     public void initialize(URL url, ResourceBundle rb) {
         super.initialize(url, rb);
-        skipButton.setDisable(skip_flag);
+        skipButton.setDisable(true);
     }
-    
-    public void skip(ActionEvent event) throws Exception{
-        int score = getScore();
-        this.player.setScore(score-=100);
+
+    public void skip(ActionEvent event) throws Exception {
+        if (score > 0) {
+            this.player.setScore(score -= 50);
+        }
         switchToGameScene(event);
     }
+
     @Override
     public void submit(ActionEvent event) throws Exception {
         super.submit(event);
-        if(getScore()>=100 && counter>=1){
-            skipButton.setDisable(!skip_flag);
+        //if score =0 can use skip free [not minus score])
+        if ((getScore() >= 100 || score==0) && counter > 0) {
+            skipButton.setDisable(false);
         }
         counter++;
     }
- 
+
 }

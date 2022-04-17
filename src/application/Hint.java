@@ -21,12 +21,11 @@ public class Hint extends SceneController implements Initializable {
     ImageView hint1;
     @FXML
     ImageView hint2;
-
-    randomPic pic;
-
-    String pic1;
-    String pic2;
-    String answer;
+  
+    private final randomPic pic;
+    private final String pic1;
+    private final String pic2;
+    private final String answer;
 
     @FXML
     protected Label currentScore;
@@ -37,9 +36,9 @@ public class Hint extends SceneController implements Initializable {
     protected int hp;
     protected Player player;
 
-    boolean button_Stage = true;
+    //check if player used hint button ? false : true
+    protected boolean hint_button_Stage = true;
 
-    boolean hintFlag = false; //check if player use hint button score minus 10
 
     public Hint() throws Exception {
         this.pic = new randomPic();
@@ -54,14 +53,15 @@ public class Hint extends SceneController implements Initializable {
         hintButton.setDisable(true);    //can press hint button only 1 time
         hintLabel.setText(answer.length() + " LETTERS");
 
-        if (score > 0) {
+        if (score > 0) { //do not minus score if it in start of the game
             this.score -= 10;
         }
 
-        currentScore.setText("" + this.score);
-        button_Stage = false;
+        currentScore.setText("" + this.score); //update score
+        hint_button_Stage = false; //set to false because player used HintButton
     }
 
+    //override initialize to display hintPicture immediately
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println(pic1);
@@ -71,7 +71,10 @@ public class Hint extends SceneController implements Initializable {
         Image hintImage2 = new Image(getClass().getResourceAsStream(pic2));
         hint2.setImage(hintImage2);
 
-        hintButton.setDisable(true);    //can use hint button after get wrong answer
+        
+        hintButton.setDisable(true);    //can use hint button after get one wrong answer 
+        //this chain to class SubmitButton
+        
     }
 
     public String getAnswer() {
