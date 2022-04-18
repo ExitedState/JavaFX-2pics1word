@@ -24,6 +24,7 @@ public abstract class wordList {
             wordsList.add(line);
             line = reader.readLine();
         }
+        reader.close();
         return wordsList;
     }
     

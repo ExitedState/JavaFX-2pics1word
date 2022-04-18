@@ -16,7 +16,7 @@ public class SkipStage extends SubmitButton {
     public SkipStage() throws Exception {
         this.counter = 0;
     }
-
+ 
     @Override
     //update score and hp when go to next stage
     public void initialize(URL url, ResourceBundle rb) {
@@ -34,7 +34,6 @@ public class SkipStage extends SubmitButton {
     @Override
     public void submit(ActionEvent event) throws Exception {
         super.submit(event);
-        System.out.println(this.counter);
         //if score =0 can use skip free [not minus score])
         if ((getScore() >= 100 || score==0) && this.counter > 0) {
             skipButton.setDisable(false);
