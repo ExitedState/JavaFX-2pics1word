@@ -5,12 +5,17 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class SubmitButton extends Hint implements Initializable {
 
     @FXML
     private TextField answerTextField;
+    @FXML
+    private Label lastWordInput;
+
+    protected static String endScreenAnswer;
 
     public SubmitButton() throws Exception {
         player = new Player();
@@ -19,20 +24,21 @@ public class SubmitButton extends Hint implements Initializable {
     }
 
     public void submit(ActionEvent event) throws Exception {
-        if (answerTextField.getText().equalsIgnoreCase(super.getAnswer()) && player.getHp() != 0) {
+        String userAnswer = answerTextField.getText();
+        String stageAnswer = super.getAnswer();
+        if (userAnswer.equalsIgnoreCase(stageAnswer) && player.getHp() != 0) {
             score += 100;
             player.setScore(score);
             switchToGameScene(event);
             System.out.println("Score : " + score);
-        }
-        else if (!answerTextField.getText().equalsIgnoreCase(super.getAnswer()) && player.getHp() != 0) {
+        } else if (!userAnswer.equalsIgnoreCase(stageAnswer) && player.getHp() != 0) {
             hp -= 1;
             player.setHp(hp);
             answerTextField.clear();
             System.out.println("HP :" + hp);
         }
         //always check if player hp=0 ENDGAME!!
-        if (!answerTextField.getText().equalsIgnoreCase(super.getAnswer()) && player.getHp() == 0) {
+        if (!userAnswer.equalsIgnoreCase(stageAnswer) && player.getHp() == 0) {
             switchToEndScene(event);
         }
 
@@ -48,6 +54,10 @@ public class SubmitButton extends Hint implements Initializable {
         currentScore.setText("" + score);
         currentHP.setText("" + hp);
 
+        lastWordInput.setVisible(true);
+        lastWordInput.setText("Last answer :  " + userAnswer);
+
+        this.endScreenAnswer = stageAnswer;
     }
 
     @Override
@@ -56,6 +66,7 @@ public class SubmitButton extends Hint implements Initializable {
         super.initialize(url, rb);
         currentScore.setText("" + score);
         currentHP.setText("" + hp);
+        lastWordInput.setVisible(false);
     }
 
     public int getScore() {

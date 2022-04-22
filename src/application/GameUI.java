@@ -16,7 +16,7 @@ public class GameUI extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
         Scene scene = new Scene(root);
 
-        primaryStage.setTitle("DemoGame");
+        primaryStage.setTitle("2Pics1Word");
         Image icon = new Image("/pic/ico/icon.png");
         primaryStage.getIcons().add(icon);
         primaryStage.setResizable(false);
