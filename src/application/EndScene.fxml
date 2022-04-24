@@ -6,30 +6,30 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane mouseTransparent="false" prefHeight="570" prefWidth="950" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EndScoreDisplay">
+<AnchorPane mouseTransparent="false" prefHeight="570" prefWidth="950" style="-fx-background-image: url(&quot;pic/bkgd/skeleton3.gif&quot;); -fx-background-size: 950 570;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EndScoreDisplay">
    <children>
-      <Text fill="WHITE" layoutX="304.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME OVER" wrappingWidth="341.47454833984375">
+      <Text fill="#a41414" layoutX="166.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME OVER" textAlignment="CENTER" wrappingWidth="640.4745483398438">
          <font>
-            <Font name="2005_iannnnnTKO" size="96.0" />
+            <Font name="Calisto MT" size="96.0" />
          </font>
       </Text>
-      <Button layoutX="391.0" layoutY="366.0" onAction="#switchToMainMenu" prefHeight="48.0" prefWidth="168.0" style="-fx-background-color: black;" text="MENU" textAlignment="CENTER" textFill="WHITE">
+      <Button layoutX="391.0" layoutY="366.0" onAction="#switchToMainMenu" prefHeight="48.0" prefWidth="168.0" style="-fx-background-color: gray;" text="MENU" textAlignment="CENTER" textFill="#a41414">
          <font>
-            <Font name="4077th" size="29.0" />
+            <Font name="Calisto MT" size="29.0" />
          </font></Button>
-      <Button fx:id="exitButton" layoutX="391.0" layoutY="444.0" onAction="#exitGame" prefHeight="48.0" prefWidth="168.0" style="-fx-background-color: black;" text="EXIT" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="exitButton" layoutX="391.0" layoutY="441.0" onAction="#exitGame" prefHeight="48.0" prefWidth="168.0" style="-fx-background-color: gray;" text="EXIT" textAlignment="CENTER" textFill="#a41414">
          <font>
-            <Font name="4077th" size="29.0" />
+            <Font name="Calisto MT" size="29.0" />
          </font>
       </Button>
-      <Text fx:id="gameOverScore" fill="WHITE" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9999" textAlignment="CENTER" wrappingWidth="950.0">
+      <Text fx:id="gameOverScore" fill="#a41414" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9999" textAlignment="CENTER" wrappingWidth="950.0">
          <font>
-            <Font name="2005_iannnnnTKO" size="59.0" />
+            <Font name="Calisto MT" size="59.0" />
          </font>
       </Text>
-      <Label fx:id="correctAnswer" alignment="CENTER" layoutX="283.0" layoutY="279.0" prefHeight="58.0" prefWidth="383.0" text="Correct answer label" textAlignment="CENTER" textFill="#70ffc5">
+      <Label fx:id="correctAnswer" alignment="CENTER" layoutX="253.0" layoutY="285.0" prefHeight="65.0" prefWidth="444.0" text="Correct answer label" textAlignment="CENTER" textFill="#70ffc5">
          <font>
-            <Font name="2005_iannnnnTKO" size="44.0" />
+            <Font name="Calisto MT" size="44.0" />
          </font>
       </Label>
    </children>

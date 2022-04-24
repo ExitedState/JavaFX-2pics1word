@@ -30,12 +30,10 @@ public class SubmitButton extends Hint implements Initializable {
             score += 100;
             player.setScore(score);
             switchToGameScene(event);
-            System.out.println("Score : " + score);
         } else if (!userAnswer.equalsIgnoreCase(stageAnswer) && player.getHp() != 0) {
             hp -= 1;
             player.setHp(hp);
             answerTextField.clear();
-            System.out.println("HP :" + hp);
         }
         //always check if player hp=0 ENDGAME!!
         if (!userAnswer.equalsIgnoreCase(stageAnswer) && player.getHp() == 0) {

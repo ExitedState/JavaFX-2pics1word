@@ -64,8 +64,8 @@ public class Hint extends SceneController implements Initializable {
     //override initialize to display hintPicture immediately
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println(pic1);
-        System.out.println(pic2);
+//        System.out.println(pic1);
+//        System.out.println(pic2);
         Image hintImage1 = new Image(getClass().getResourceAsStream(pic1));
         hint1.setImage(hintImage1);
         Image hintImage2 = new Image(getClass().getResourceAsStream(pic2));
