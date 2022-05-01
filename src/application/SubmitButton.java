@@ -37,6 +37,8 @@ public class SubmitButton extends Hint implements Initializable {
         }
         //always check if player hp=0 ENDGAME!!
         if (!userAnswer.equalsIgnoreCase(stageAnswer) && player.getHp() == 0) {
+            this.endScreenAnswer = stageAnswer;
+
             switchToEndScene(event);
         }
 
@@ -55,7 +57,6 @@ public class SubmitButton extends Hint implements Initializable {
         lastWordInput.setVisible(true);
         lastWordInput.setText("Last answer :  " + userAnswer);
 
-        this.endScreenAnswer = stageAnswer;
     }
 
     @Override
